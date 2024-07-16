@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/static/style/styles.css"> -->
+    <title>Internee.pk</title>
+    <style>
+
+        .typewriter {
+            font-family: 'Courier', monospace;
+            font-size: 1.5em;
+            color: #333;
+            display: inline-block;
+            border-right: .15em solid orange;
+            white-space: nowrap; /* Keeps the text in a single line */
+            color: green;
+          }
+          
+          /* The typing effect */
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+          }
+          
+          /* The blink caret */
+          @keyframes blink-caret {
+            from, to { border-right-color: transparent }
+            50% { border-right-color: orange }
+          }
+          
+          /* Optional: Additional styling */
+          .typewriter h1 {
+            font-family: 'Courier', monospace;
+            font-size: 1.5em;
+            color: #333;
+          }
+          <!-- .photo-container {
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } -->
+        .box {
+            position: absolute; /* Child div with absolute positioning */
+            top: 50%; /* Positions the top of the box at 50% of its parent */
+            left: 80%; /* Positions the left side of the box at 50% of its parent */
+            transform: translate(-50%, -50%); /* Centers the box vertically and horizontally */
+          }
+
+         /* Footer styling */
+         footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            color: #555;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff; /* Change color on hover */
+        }
+          
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+          <img src="/static/Images/Logo.png" width="30" height="30" class="d-inline-block align-top" alt="Internee.pk Logo">
+          Internee.pk
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://internee.pk/internship.html">Internship<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://internee.pk/company.html">Company Collaboration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://internee.pk/contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <div id="navButtons" class="btn-group ml-2" role="group" aria-label="Navbar buttons">
+            <a href="https://career.internee.pk/" class="btn btn-success rounded-pill">Job Portal</a>
+            <a href="/login" class="btn btn-outline-primary rounded-pill ml-2">Internee's Login</a>
+        </div>
+        </div>
+    </nav>
+    <h1>Looking for dream internship?</h1>
+    <div class="typewriter">
+        <h2 class="typewriter-text"></h2>
+    </div>
+       <p>
+        Internee.pk kickstart student's tech careers with first
+        internships,</p> 
+        <p>industry exposure, practical
+        skills, and networking opportunities,</p>
+        <p> paving the way for
+        their success in the tech industry.</p>
+    <br>
+    <br>
+    <br>
+    <div class="box">
+        <img src="/static/Images/internee_photo.jpeg" alt="Photo" style="width: 450px; height: 470px;">
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <p>&copy; 2024 Internee.pk. All rights reserved.</p>
+        </div>
+    </footer>
+      
+      
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/static/JS/script.js"></script>
+</body>
+</html>

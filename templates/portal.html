@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Manage Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .custom-file-input {
+            cursor: pointer;
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+          <img src="/static/Images/Logo.png" width="30" height="30" class="d-inline-block align-top" alt="Internee.pk Logo">
+          Internee.pk
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://internee.pk/internship.html">Internship<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://internee.pk/company.html">Company Collaboration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://internee.pk/contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <div id="navButtons" class="btn-group ml-2" role="group" aria-label="Navbar buttons">
+            <a href="https://career.internee.pk/" class="btn btn-success rounded-pill">Job Portal</a>
+            <a href="/login" class="btn btn-outline-primary rounded-pill ml-2">Internee's Login</a>
+        </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Manage Your Account</h2>
+        <hr>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'portal' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ user.username }}" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" class="form-control" rows="4">{{ user_profile.bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" id="skills" name="skills" class="form-control" value="{{ user_profile.skills }}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" rows="4">{{ user_profile.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="profile-photo">Profile Photo</label>
+                <input type="file" id="profile-photo" name="profile_photo" class="custom-file-input">
+            </div>
+            <div class="form-group">
+                <img id="preview-photo" src="{% if user_profile.profile_photo %}{{ user_profile.profile_photo.url }}{% else %}/static/Images/default_profile.jpg{% endif %}" alt="Profile Photo" class="profile-photo">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script>
+        // Preview selected profile photo before upload
+        document.getElementById('profile-photo').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('preview-photo').setAttribute('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
